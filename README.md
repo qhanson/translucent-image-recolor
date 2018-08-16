@@ -11,8 +11,8 @@ refine_code/GUI_hm_dark_style.py.py is the main file.
 Notice: we are still working on organizing the full code. We will update the codes in this repository soon.
 
 
-```
-Example results.
-```
+
+## Example results.
+
 
 ![Alt text](https://github.com/qhanson/translucent-image-recolor/blob/master/example-images/examples.png?raw=true "例子")
