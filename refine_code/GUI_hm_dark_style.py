@@ -397,7 +397,7 @@ class App(QMainWindow):
 
         # ab 变化
         M, status = cv2.findHomography(src_ab, tar_ab, method=cv2.RANSAC, ransacReprojThreshold=15)
-        print(status.ravel().tolist())
+        print("status",status.ravel().tolist())
         # 
         mask_status = status.ravel().tolist()
         tar_widgets = []
@@ -575,7 +575,7 @@ class FindDomColorsThread(QThread):
         # 根据直方图的Hue范围选择 初始点
         # 分段统计直方图
         # 30 20 10 5
-        bin_size = 18
+        bin_size = 15
         bins = int(180 / bin_size)
         hist = cv2.calcHist([eg_2_hls], [0], None, [bins], [0, 180])
 
@@ -592,7 +592,7 @@ class FindDomColorsThread(QThread):
         # 获得 ab的拓扑结构保持点
         medoid_abs = template_clustering(start_idxs, eg_2_ab.astype(np.float), show=False)
         medoid_abs = np.array(medoid_abs).astype(np.uint8)
-        print(medoid_abs)
+        print("聚类",medoid_abs)
         dom_colors = []
         for ab in medoid_abs:
             dom_t = eg_2_lab_3[np.all(eg_2_lab_3[:, 1:] == ab, axis=1)]
